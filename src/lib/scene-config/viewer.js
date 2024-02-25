@@ -20,22 +20,22 @@ import {
   sRGBEncoding,
   LinearToneMapping,
   ACESFilmicToneMapping,
-} from "../../../build/three.module";
-import Stats from "../../../js/stats.module.js";
-import { GLTFLoader } from "../../../js/GLTFLoader.js";
-import { KTX2Loader } from "../../../js/KTX2Loader.js";
-import { DRACOLoader } from "../../../js/DRACOLoader.js";
-import { MeshoptDecoder } from "../../../js/meshopt_decoder.module.js";
-import { OrbitControls } from "../../../js/OrbitControls.js";
-import { EXRLoader } from "../../../js/EXRLoader.js";
-import { RoomEnvironment } from "../../../js/RoomEnvironment.js";
-import * as THREE from "../../../build/three.module";
+} from "@build/three.module";
+import Stats from "@js/stats.module.js";
+import { GLTFLoader } from "@js/GLTFLoader.js";
+import { KTX2Loader } from "@js/KTX2Loader.js";
+import { DRACOLoader } from "@js/DRACOLoader.js";
+import { MeshoptDecoder } from "@js/meshopt_decoder.module.js";
+import { OrbitControls } from "@js/OrbitControls.js";
+import { EXRLoader } from "@js/EXRLoader.js";
+import { RoomEnvironment } from "@js/RoomEnvironment.js";
+import * as THREE from "@build/three.module";
 
 // import { GUI } from "../js/lil-gui.module.min.js";
-import { GUI } from "../../../build/dat.gui.module.js";
-import { TWEEN } from "../../../js/tween.module.min.js";
+import { GUI } from "@build/dat.gui.module.js";
+import { TWEEN } from "@js/tween.module.min.js";
 
-import { environments } from "../../assets/environment/index.js";
+import { environments } from "@public/assets/environment/index.js";
 // import { createBackground } from '../lib/three-vignette.js';
 
 // let scene, camera, renderer;
@@ -77,7 +77,7 @@ export class Viewer {
       environment:
         options.preset === Preset.ASSET_GENERATOR
           ? environments.find((e) => e.id === "footprint-court").name
-          : environments[1].name,
+          : environments[3].name,
       background: false,
       playbackSpeed: 1.0,
       actionStates: {},

@@ -1,14 +1,14 @@
 <script>
-  import * as THREE from "../build/three.module";
+  import * as THREE from "@build/three.module";
   import { onMount, tick } from "svelte";
 
   import { Viewer } from "./lib/scene-config/viewer";
-  import queryString from "../js/query-string-main/index.js";
-  import WebGL from "../js/WebGL.js";
+  import queryString from "@js/query-string-main/index.js";
+  import WebGL from "@js/WebGL.js";
 
   let scene;
-  // let fittingRoomPath = "src/models/thoitrang_nam_1fittingroom.gltf";
-  let fittingRoomPath = "src/assets/models/temple/scene.gltf";
+  // let selectedModel = "src/models/thoitrang_nam_1fittingroom.gltf";
+  let selectedModel = "./assets/models/cyberCity/scene.gltf";
 
   let viewer;
   let canvas;
@@ -16,8 +16,6 @@
   let options;
   window.VIEWER = {};
 
-  $: console.log("canvas: ", canvas);
-  $: console.log("viewer: ", viewer);
   if (!(window.File && window.FileReader && window.FileList && window.Blob)) {
     console.error("The File APIs are not fully supported in this browser.");
   } else if (!WebGL.isWebGLAvailable()) {
@@ -40,7 +38,7 @@
 
     scene = new THREE.Scene();
     viewer = new Viewer(container, options);
-    loadModel(fittingRoomPath);
+    loadModel(selectedModel);
 
     // //create planeMesh
     // const visiablePlane = new THREE.Mesh(

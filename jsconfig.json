@@ -1,5 +1,19 @@
 {
   "compilerOptions": {
+     "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@public/*": [
+        "./public/*"
+      ],
+      "@js/*": [
+        "./js/*"
+      ],
+       "@build/*": [
+        "./build/*"
+      ],
+    },
     "moduleResolution": "bundler",
     "target": "ESNext",
     "module": "ESNext",
