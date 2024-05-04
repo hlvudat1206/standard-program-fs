@@ -30,16 +30,9 @@ import { OrbitControls } from "@js/OrbitControls.js";
 import { EXRLoader } from "@js/EXRLoader.js";
 import { RoomEnvironment } from "@js/RoomEnvironment.js";
 import * as THREE from "@build/three.module";
-
-// import { GUI } from "../js/lil-gui.module.min.js";
 import { GUI } from "@build/dat.gui.module.js";
 import { TWEEN } from "@js/tween.module.min.js";
-
 import { environments } from "@public/assets/environment/index.js";
-// import { createBackground } from '../lib/three-vignette.js';
-
-// let scene, camera, renderer;
-// let hemiLight, hemiLight_helper;
 
 let strDownloadMime = "image/octet-stream";
 
@@ -255,33 +248,11 @@ export class Viewer {
   };
 
   load(url) {
-    console.log("url::: ", url);
-
-    console.log("in ra loading2");
-
-    console.log("in ra url: ", url);
-    // console.log('in ra rootpath: ',rootPath)
     const baseURL = LoaderUtils.extractUrlBase(url);
-
     // Load.
     return new Promise((resolve, reject) => {
       // Intercept and override relative URLs.
       MANAGER.setURLModifier((url, path) => {
-        // URIs in a glTF file may be escaped, or not. Assume that assetMap is
-        // from an un-escaped source, and decode all URIs before lookups.
-        // See: https://github.com/donmccurdy/three-gltf-viewer/issues/146
-
-        // const normalizedURL = rootPath + decodeURI(url)
-        //   .replace(baseURL, '')
-        //   .replace(/^(\.?\/)/, '');
-        console.log("in ra manager1111: ", MANAGER);
-        // if (assetMap.has(normalizedURL)) {
-        //   const blob = assetMap.get(normalizedURL);
-        //   const blobURL = URL.createObjectURL(blob);
-        //   blobURLs.push(blobURL);
-        //   return blobURL;
-        // }
-
         return (path || "") + url;
       });
 
@@ -297,8 +268,6 @@ export class Viewer {
       loader.load(
         url,
         (gltf) => {
-          console.log("in ra url 2: ", url);
-          console.log("window: ", window);
           window.VIEWER.json = gltf;
 
           const scene = gltf.scene || gltf.scenes[0];
@@ -852,7 +821,6 @@ function traverseMaterials(object, callback) {
   });
 }
 
-// https://stackoverflow.com/a/9039885/1314762
 function isIOS() {
   return (
     [

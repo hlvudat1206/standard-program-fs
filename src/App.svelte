@@ -8,7 +8,7 @@
 
   let scene;
   // let selectedModel = "src/models/thoitrang_nam_1fittingroom.gltf";
-  let selectedModel = "./assets/models/cyberCity/scene.gltf";
+  let selectedModel = "./assets/models/motorbike/motorbike.gltf";
 
   let viewer;
   let canvas;
